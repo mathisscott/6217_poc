@@ -1,0 +1,48 @@
+<div class="main-container">
+  <header class="header-2">
+    <div class="branding">
+      <a class="nav-link">
+        <clr-icon shape="home" size="24"></clr-icon>
+        <span class="title">Clarity</span>
+      </a>
+    </div>
+    <div class="header-nav">
+      <a class="active nav-link nav-text">Home</a>
+    </div>
+  </header>
+  <div class="content-container">
+    <div class="content-area">
+      <div cds-layout="horizontal gap:lg align:vertical-center">
+        <h3 cds-text="title">Clarity Datagrid demo</h3>
+        <div><cds-button (click)="toggle()">Toggle Icon</cds-button></div>
+      </div>
+      <clr-datagrid style="height: 360px">
+        <clr-dg-action-bar>
+          <input
+            type="text"
+            class="clr-input"
+            [(ngModel)]="inputValue"
+            [placeholder]="'Filter Here'"
+          />
+        </clr-dg-action-bar>
+        <clr-dg-placeholder role="region">
+          <custom-grid-placeholder
+            [isGridFiltered]="isGridFiltered"
+          ></custom-grid-placeholder>
+        </clr-dg-placeholder>
+
+        <clr-dg-column>User ID</clr-dg-column>
+        <clr-dg-column>Name</clr-dg-column>
+        <clr-dg-column>Favorite color</clr-dg-column>
+
+        <clr-dg-row *ngFor="let user of users">
+          <clr-dg-cell>{{ user.id }}</clr-dg-cell>
+          <clr-dg-cell>{{ user.name }}</clr-dg-cell>
+          <clr-dg-cell>{{ user.color }}</clr-dg-cell>
+        </clr-dg-row>
+
+        <clr-dg-footer>{{ users.length }} users</clr-dg-footer>
+      </clr-datagrid>
+    </div>
+  </div>
+</div>
